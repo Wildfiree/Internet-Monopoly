@@ -1,0 +1,24 @@
+body{font-size:14px; color: #ececec; line-height: 1em; letter-spacing: 2px;}
+.textTrans{
+    width: 80%;
+    height: 100px;
+    position:relative;
+    left:5%;
+    font-size: 1.8em;
+    font-family: "微软雅黑";
+    text-indent: 2em;
+    padding: 5%;
+    /* box-shadow: 2px 2px 6px #888888;  */
+    letter-spacing: 5px; 
+    line-height: 2.5em;
+}
+.textTrans span{color: #ff5858;}
+
+.secifInfo{width: 45%; height: 60%; }
+/* .secifInfo{background-color: aquamarine;} */
+
+.secifInfo .timeTrans{
+    height: 200px;
+    position: relative;
+    top:10%;
+}

@@ -1,0 +1,40 @@
+body{
+  --body-width: 100%;
+  --svg-width: 1000px;
+}
+div#bubble{
+  height:800px;
+  overflow: auto;
+}
+
+svg.change {
+  position: absolute;
+  left: var(--body-width)/2 - var(--svg-width)/2;
+}
+div button{
+  z-index:10;
+  width: 100px;
+  height:20px;
+}
+#axis-container text {
+        font-size: 8pt;
+      }
+circle.Obama {
+        fill: lightBlue;
+      }
+circle.Trump {
+  fill: pink;
+} 
+div.tooltip {
+        position: absolute;
+        text-align: center;
+        width: 200px;
+        height: 160px;
+        padding: 2px;
+        font: 12px sans-serif;
+        background: rgb(218, 45, 45);
+        color: grey;
+        border: 1px solid grey;
+        border-radius: 3px;
+        pointer-events: none;
+      }
