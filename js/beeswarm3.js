@@ -7018,8 +7018,6 @@ function initlayout(){
     
 };
 function preL(){
-    console.log("pre");
-
     Circles = circleContainer.selectAll("circle")
         .data(Alldata)
         .enter()
@@ -7053,8 +7051,6 @@ function preL(){
         })
 };
 function firstL(){
-    // $("button").click(function(){
-    console.log("first");
     d3.selectAll("circle")
         .transition()
         .duration(2500)
@@ -7062,12 +7058,10 @@ function firstL(){
         .style("opacity", 1)
         .attr("cx", d => d.x1)
         .attr("cy", d => height - d.y1);
+    console.log("first");
        
 };
-function secondL() {
-    // $("#button2").click(function () {
-    console.log("second");
-    
+function secondL() {    
     d3.selectAll("circle")
             .transition()
             .duration(3000)
@@ -7084,9 +7078,6 @@ function secondL() {
     
 }; 
 function thirdL() {
-    // $("#button3").click(function () {
-    console.log("third");
-
         d3.selectAll("circle")
             .transition()
             .duration(3000)
@@ -7097,10 +7088,4 @@ function thirdL() {
             .attr("cy", d => d.y3);
     
 };
-
-// console.log(Alldata);
-// compute();
-// firstL();
-// secondL();
-// thirdL();
 
