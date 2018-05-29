@@ -6818,20 +6818,31 @@ var liType = [],
     Ppadding = Twidth / tnum,
     Ppadding2 = svgHeight /tnum,
     i = 0;
+//color
+var tencolor = "#7DB9DE",
+    alicolor = "#DC9FB4",
+    axistext = "#fff";
 
 var Alldata = data.map(d => ({ data: d, index: d.id })).sort((a, b) => a.index - b.index);
 
-function compute(){
-    var xScale = d3.scaleLinear()
-        .domain(d3.extent(data, d => d.year))
-        .range([margin.top, height]);
-    var yScale = d3.scaleLinear()
-        .domain(d3.extent(data, d => d.year))
-        .range([margin.left, width - margin.right]);
+var yScale = d3.scaleLinear()
+    .domain(d3.extent(data, d => d.year))
+    .range([margin.top, height]);
+var xScale = d3.scaleLinear()
+    .domain(d3.extent(data, d => d.year))
+    .range([margin.left, width - margin.right]);
+const yAxis = g => g
+    .attr("transform", `translate(${margin2.left},${svgHeight - margin.bottom})`)
+    .call(d3.axisTop(xScale).tickSizeOuter(0));
 
+const xAxis = g => g
+    .attr("transform", `translate(${margin2.left + svgWidth / 2},${margin.top})`)
+    .call(d3.axisLeft(yScale).tickSizeOuter(0));
+
+function compute(){   
     //一.compute the simple position 
-    const simcir0 = data.map(d => ({ m: yScale(d.year), data: d, index: d.id })).sort((a, b) => a.index - b.index);
-    const simcir = data.map(d => ({ m: xScale(d.year), data: d, index: d.id })).sort((a, b) => a.index - b.index);
+    const simcir0 = data.map(d => ({ m: xScale(d.year), data: d, index: d.id })).sort((a, b) => a.index - b.index);
+    const simcir = data.map(d => ({ m: yScale(d.year), data: d, index: d.id })).sort((a, b) => a.index - b.index);
 
     simpos(simcir0, height);
 
@@ -6881,8 +6892,8 @@ function compute(){
         }
     };
     //三.compute type position data
-    liType = ["文化娱乐", "电子商务", "企业服务", "汽车交通", "本地生活", "金融", "游戏", "医疗健康", "工具软件", "教育", "物流", "社交网络", "硬件", "旅游", "房产服务", "体育运动", "广告营销"]
-    for (t = 0; t < liType.length; t++){
+    liType = ["文化娱乐", "电子商务", "企业服务", "汽车交通", "本地生活", "金融", "游戏", "医疗健康", "工具软件", "教育", "物流", "社交网络", "硬件", "旅游", "房产服务", "体育运动", "广告营销","农业",""]
+    for (t = 0; t < liType.length; t++){   
         //1.filter data by type
         var sdata = data.filter(function (d) { return d.type === liType[t]});
 
@@ -6928,6 +6939,12 @@ function compute(){
             else if (i >= tnum * 3 && i < tnum * 4) {
                 d.x = d.x + (i - tnum * 3) * Ppadding;
                 d.y = d.y + Ppadding2 * 2.6
+            }
+            else if (i >= tnum * 4 && i < tnum * 5) {
+                // d.x = d.x + (i - tnum * 4) * Ppadding;
+                // d.y = d.y + Ppadding2 * 3.3
+                d.x = 800 + Math.random()*100;
+                d.y = 800 + Math.random() * 100;
             }
             return d;
         };
@@ -6976,24 +6993,24 @@ function compute(){
         for (b of data){
             if (b.n > edge && b.n < edge * 2) {
                 b.m = b.m + radius * 2 + padding;
-                b.n = b.n - edge;
+                b.n = b.n - edge -padding/2;
             } else if (b.n > edge*2 && b.n < edge*3){
                 b.m = b.m + radius * 4 + padding*2;
-                b.n = b.n - edge * 2 ;
+                b.n = b.n - edge * 2 - padding;
             } else if (b.n > edge * 3 && b.n < edge * 4) {
                 b.m = b.m + radius * 6 + padding * 3;
-                b.n = b.n - edge * 3;
+                b.n = b.n - edge * 3 - padding;
             } else if (b.n > edge * 4 && b.n < edge * 5) {
                 b.m = b.m + radius * 8 + padding * 4;
-                b.n = b.n - edge * 4;
+                b.n = b.n - edge * 4 - padding/2;
             }  
         }
         return data;
     };  
 };
 
-
 var Circles, svg, firstL, drawingArea, axisContainer, circleContainer, tooltip;
+var Tlogo, Ttext, Ttext1, Ttext2, Ttext3, Ttext4;
 
 function initlayout(){
     svg = d3.select("svg")
@@ -7012,10 +7029,15 @@ function initlayout(){
     tooltip = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
-    //add tooltip style
-    tooltip
-        .append("div");
-    
+    // add tooltip style
+    Tlogo = tooltip.append("div");
+    Ttext = tooltip.append("div");
+    Tlogo.append("img");
+    Ttext1 = Ttext.append("p");
+    Ttext2 = Ttext.append("p");
+    Ttext3 = Ttext.append("p"); 
+    Ttext4 = Ttext.append("p");
+
 };
 function preL(){
     Circles = circleContainer.selectAll("circle")
@@ -7026,28 +7048,41 @@ function preL(){
         .attr("r", radius)
         .attr("fill", function (d) {
             if (d.data.inname === "腾讯") {
-                return "#448aca"
+                return tencolor
             } else {
-                return "#f29a76"
+                return alicolor
             }
         })
         .style("opacity", 0)
         .attr("cx", d => d.x1)//random algorithm
-        .attr("cy", 0);
+        .attr("cy", d => height - d.y1 - 100);
     //draw tooltip
     d3.selectAll("circle")
         .on("mouseover", function(d){
             tooltip.transition()
-                .duration(0)
+                .duration(1000)
                 .style("opacity", 1);
             tooltip
-                .style("left", (d3.event.pageX - 100) + "px")
-                .style("top", (d3.event.pageY - 80) + "px");
+                .style("left", (d3.event.pageX - 60) + "px")
+                .style("top", (d3.event.pageY - 40) + "px");
+
+            Tlogo.attr("class", "logo");
+            Ttext.attr("class", "Ttext");
+            // Tlogo.append("img").attr("class", "Tlogopic");
+            Ttext1.attr("class", "Tptext").html(d.data.name);
+            Ttext2.attr("class", "Tptext").html(d.data.inname);
+            Ttext3.attr("class", "Tptext").html(d.data.type);
+            Ttext4.attr("class", "Tttext").html(d.data.date);
+
+            
         })
         .on("mouseout", function (d) {
             tooltip.transition()
-                .duration(tduration)
+                .duration(0)
                 .style("opacity", 0)
+            Tlogo.attr("class", "");
+            Ttext.attr("class", "");
+            d3.selectAll(".Tptext").attr("class", "");
         })
 };
 function firstL(){

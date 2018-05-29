@@ -205,6 +205,10 @@ function drawTooltip(svg){
             tooltip.transition()
                 .duration(1000)
                 .style("opacity", .9);
+
+            
+
+
             tooltip.html("" + (d.datum.name + 'from' + d.datum.inname))
                 .style("left", (d3.event.pageX - 100) + "px")
                 .style("top", (d3.event.pageY - 80) + "px");

@@ -23,9 +23,10 @@
 </header>
 <div id="content">
     <article>
-        <div></div>
-        <div></div>
-        <!-- <div id=""><video src=""></video></div> -->
+        <!-- <div id="pin">
+            <h3>互联网的一天</h3>
+            <video src=""></video>
+        </div> -->
         <div align="center"  id="pin">
             <img src="img/header.png" alt="" width="80%">
         </div>
@@ -52,13 +53,15 @@
 
     </article>
 
-    <div id="chart">
+    <div id="chart"> 
         <div class="blank"></div>
         <div class="blank"></div>
         <div id="trigPre"></div>
-        <svg></svg>
-        <div class="blank"></div>
-        <div id="relate"></div>
+        <div id="chart2">
+            <svg></svg>
+            <!-- <div class="blank"></div> -->
+            <div id="relate"></div>
+        </div>
 
     </div>
 <!-- </div>
@@ -73,6 +76,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 
     <script src="js/jquery-3.3.1.min.js"> </script>
+    <!-- <script src="js/echarts.common.min.js"> </script> -->
     <script src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
 
     <!-- D3js -->
@@ -80,10 +84,14 @@
     <script src="js/beeswarm3.js"></script>
     <script src="js/scroll.js"></script>
 
+    <script src="js/relationships.js"></script>
+
     <script>
         var Hheight = $(window).height();
         $("header").height(Hheight);
     </script>
+    
+    
 
 </body>
 </html>

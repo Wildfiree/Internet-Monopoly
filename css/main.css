@@ -1,19 +1,7 @@
-/* 
-backgroud-corlor 
-#e8f4fd
-#e8f4fd
-#e8f4fd
-#0a5585
-#0f2644
-#061836
-#021247
-*/
-
 body, header, #content, footer{margin:0; padding:0;}
 header,article, #chart{position: absolute; left:0; right:0;}
 
-#content{height: 5000px;}
-/* header{background-image: url(../img/header.png);background-size: 100%; background-repeat: no-repeat;} */
+
 body{
     background: -webkit-linear-gradient(top,#ffffff 0%,#e8f4fd 20%,#0a5585 30%,#0f2644 50%,#061836 75%,#021247 95%); /* Safari 5.1 to 6.0 */
     background: -o-linear-gradient(top, #ffffff 0%,#e8f4fd 20%,#0a5585 30%,#0f2644 50%,#061836 75%,#021247 95%); /* Opera 11.1 to 12.0 */
@@ -21,10 +9,19 @@ body{
     background: linear-gradient(top,#ffffff 0%,#e8f4fd 20%,#0a5585 30%,#0f2644 50%,#061836 75%,#021247 95%); /* 标准语法 */
 }
 header{z-index: 20;}
-video{width:80%; position: relative; left:10%}
+#chart{z-index:10;}
+article{z-index:1;}
 
-article{z-index:10;}
-#chart{z-index:1;}
+#pin video{width:80%; position: relative; left:10%}
+
 
 /* test */
 header{background-color: #0a5585}
+#content{height: 10000px;}
+
+#relate{
+    /* width: 80%;  */
+    height: 800px; 
+    padding-left:200px; 
+    opacity: 0; transition: all 2s ease-out;}
+#relate.show{opacity: 1;}

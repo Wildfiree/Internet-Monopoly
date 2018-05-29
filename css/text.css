@@ -22,3 +22,5 @@ body{font-size:14px; color: #ececec; line-height: 1em; letter-spacing: 2px;}
     position: relative;
     top:10%;
 }
+
+#pin h3{text-align: center;color: blue;}
