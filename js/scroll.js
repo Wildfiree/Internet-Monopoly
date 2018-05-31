@@ -4,18 +4,18 @@ $(document).ready(function(){
 
     var controller = new ScrollMagic.Controller();
     
-    var headerfade = new ScrollMagic.Scene({
-        triggerElement: "header",
-        duration: "140%",
-        triggerHook: 0})
-        .setPin("#content", {pushFollowers: false})
-        .addIndicators({name:"headerfade"}).addTo(controller);
+    // var headerfade = new ScrollMagic.Scene({
+        // triggerElement: "header",
+        // duration: "140%",
+        // triggerHook: 0})
+        // .setPin("#content", {pushFollowers: false})
+        // .addIndicators({name:"headerfade"}).addTo(controller);
     
     var trigV = new ScrollMagic.Scene({triggerElement:"#trigV", duration:"100%", triggerHook:0})
             .on("enter", function(){$("#pin video").trigger("play")}).addIndicators({name:"video"}).addTo(controller);
     
     var trig0 = new ScrollMagic.Scene({
-        triggerElement:"#trigPre", duration:"500%",triggerHook:0 })
+        triggerElement:"#trigPre", duration:"800%",triggerHook:0 })
         .on("enter", preL()).setPin("#chart #chart2", {pushFollowers: false})
         .setClassToggle("#sinfo1", "fade-in")
         .addIndicators({name: 'trig0',}).addTo(controller);
@@ -73,7 +73,7 @@ $(document).ready(function(){
                     }
                 })
                 .attr("cy", d => d.y2 - margin.top);})
-    .setClassToggle("#twoC", "fade-in").setPin("#twoC", { pushFollowers: false }).addIndicators({ name: "second" }).addTo(controller);
+    .setClassToggle("#twoC", "fade-in").addIndicators({ name: "second" }).addTo(controller);
 
 
     var trig2_3 = new ScrollMagic.Scene({
@@ -130,8 +130,8 @@ $(document).ready(function(){
     // var trigRp = new ScrollMagic.Scene({triggerElement:"#trig6", duration:"200%", triggerHook:0.8 })
     //     .setClassToggle("#relate", "show").addIndicators({name: "Rpre"}).addTo(controller);
     var trigR = new ScrollMagic.Scene({
-        triggerElement: "#relate", duration: "100%", triggerHook: 0 })    
-        .setPin("#chart #relate", { pushFollowers: false })
+        triggerElement: "#Rchart", duration: "80%", triggerHook: 0 })    
+        .setPin("#chart #Rchart", { pushFollowers: false })
         .addIndicators({name: "relate"}).addTo(controller);
     
     // $(".textTrans").each(function(){

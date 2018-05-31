@@ -1,4 +1,4 @@
-var myChart = echarts.init(document.getElementById("Rchart"));
+var myChart = echarts.init(document.getElementById("relate"));
 var app = {};
 
 option = null;

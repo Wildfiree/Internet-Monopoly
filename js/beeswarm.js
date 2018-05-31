@@ -31,7 +31,7 @@ function initLayout() {
     var graphContainer = drawingArea.append("g")
         .attr("transform", "translate(" + [0, headerHeight] + ")")
 
-    axisContainer = graphContainer.append("g").attr("id", "axis-container");
+    axisContainer = graphContainer.append("g").attr("id", "axis-container"); 
     // drawAxis()
     trendContainer = graphContainer.append("g").attr("id","trend-container");
     circleContainer = graphContainer.append("g").attr("id", "circle-container");
