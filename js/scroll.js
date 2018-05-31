@@ -15,7 +15,7 @@ $(document).ready(function(){
             .on("enter", function(){$("#pin video").trigger("play")}).addIndicators({name:"video"}).addTo(controller);
     
     var trig0 = new ScrollMagic.Scene({
-        triggerElement:"#trigPre", duration:"600%",triggerHook:0 })
+        triggerElement:"#trigPre", duration:"500%",triggerHook:0 })
         .on("enter", preL()).setPin("#chart #chart2", {pushFollowers: false})
         .setClassToggle("#sinfo1", "fade-in")
         .addIndicators({name: 'trig0',}).addTo(controller);
@@ -26,12 +26,17 @@ $(document).ready(function(){
             d3.selectAll(".axis").transition()
                 .duration(0)
                 .remove();
-            const Yaxis = svg.append("g")
+            const Yaxis = d3.select("#axis-container")
+                .append("g")
                 .attr("class", "axis")
-                .transition()
-                .duration(1000)
-                .delay(1000)
-                .call(yAxis);
+                .selectAll(".tick")
+                .data(d3.range(2008, 2019, 1))
+                .enter()
+                .append("text")
+                .attr("transform", (d) => { return "translate(" + [margin2.left + (svgWidth- margin2.left) / 11 * (d - 2008) + 2 * Math.floor(d - 2008)/6, svgHeight - margin.bottom] + ")"; })
+                .text((d) => {return d + "年"});
+
+            
             d3.selectAll("text").attr("fill", axistext);
             d3.selectAll("circle")
                 .transition()
@@ -44,8 +49,7 @@ $(document).ready(function(){
 
     var trig2 = new ScrollMagic.Scene({
         triggerElement: "#trigSecond", duration: "100%", triggerHook: 0
-    })
-        .on("enter", function(){
+    }).on("enter", function(){
             d3.selectAll(".axis").transition()
                 .duration(0)
                 .remove();
@@ -68,12 +72,12 @@ $(document).ready(function(){
                         return (svgWidth + halfSpace) / 2 + d.x2 - margin.left;
                     }
                 })
-                .attr("cy", d => d.y2 - margin.top);
-        }).addIndicators({ name: "second" }).addTo(controller);
+                .attr("cy", d => d.y2 - margin.top);})
+    .setClassToggle("#twoC", "fade-in").setPin("#twoC", { pushFollowers: false }).addIndicators({ name: "second" }).addTo(controller);
 
 
     var trig2_3 = new ScrollMagic.Scene({
-        triggerElement:"#trig2-3", duration:"100%", triggerHook: 0.9
+        triggerElement:"#trig2-3", duration:"240%", triggerHook: 0.9
     }).on("enter", function(){
         d3.selectAll(".axis").transition()
             .duration(0)
@@ -82,9 +86,10 @@ $(document).ready(function(){
             .transition()
             .duration(3000)
             .style("opacity", 0)
-            .attr("cx", d => 200 + Math.random() * 1000)
-            .attr("cy", d => Math.random() * 1000);
+            .attr("cx", d => 800 + Math.random() * 1000)
+            .attr("cy", d => 800 + Math.random() * 1000);
     }).addIndicators({name:"2-3"}).addTo(controller);
+
     var trig3 = new ScrollMagic.Scene({
         triggerElement: "#trigThird", duration: "100%", triggerHook: 0.6})
         .setClassToggle("#sinfo2", "fade-in")
@@ -96,12 +101,12 @@ $(document).ready(function(){
                 .transition()
                 .duration(3000)
                 .style("opacity", 1)
-                .attr("cx", d => d.x3 + svgWidth - Twidth + margin.left)
+                .attr("cx", d => d.x3 + svgWidth - Twidth + margin2.left + margin.left)
                 .attr("cy", d => d.y3 + margin2.top * 2);
         }).addIndicators({name:"third"}).addTo(controller);
 
     var trig4 = new ScrollMagic.Scene({
-        triggerElement: "#trigForth", duration: "100%", triggerHook: 0
+        triggerElement: "#trigForth", duration: "100%", triggerHook: 0.3
     })
         .on("enter", function () {
             d3.selectAll(".axis").transition()
@@ -112,26 +117,20 @@ $(document).ready(function(){
                 .duration(3000)
                 .style("opacity", 1)
                 .attr("cx", function(d){
-                    if("x4" in d){return d.x4}else{return 800 + Math.random()*100} 
+                    if("x4" in d){return d.x4}else{return 400 + Math.random()*1000} 
                 })
                 .attr("cy", function (d) {
-                    if ("y4" in d) { return d.y4 } else { return 800 + Math.random() * 100 }
+                    if ("y4" in d) { return d.y4 } else { return 800 + Math.random() * 1000 }
                 });
         }).addIndicators({ name: "forth" }).addTo(controller);
     
 
     
     //add effects to the class element
-
+    // var trigRp = new ScrollMagic.Scene({triggerElement:"#trig6", duration:"200%", triggerHook:0.8 })
+    //     .setClassToggle("#relate", "show").addIndicators({name: "Rpre"}).addTo(controller);
     var trigR = new ScrollMagic.Scene({
-        triggerElement: "#relate", duration: "200%", triggerHook: 0 })
-        // .on("enter", function(){
-            // var myChart = echarts.init(document.getElementById("relate"));
-            // var app = {};
-            // myChart.setOption(option);
-            // if (option && typeof option === "object") {
-            //     myChart.setOption(option, true);}})
-        .setClassToggle("#relate", "show")
+        triggerElement: "#relate", duration: "100%", triggerHook: 0 })    
         .setPin("#chart #relate", { pushFollowers: false })
         .addIndicators({name: "relate"}).addTo(controller);
     

@@ -10,9 +10,12 @@
 
 .trigger{height: 50px;}
 .blank{height:500px}
+.blank2{height: 20%;}
 
-.secifInfo{opacity: 0; transition: all 2s ease-out;}
-.fade-in{opacity: 1;}
+.fade{opacity: 0; transition: all 2s ease-out; transition-delay: 2s; transform: translateY(60px)}
+.fade-in{opacity: 1; transform: translateY(0px)}
 /* #sinfo1{margin-top:10%} */
 
 #trigV{position: absolute; bottom: 0;}
+
+#axis-container text{font-size: 10px; font-weight: 100}

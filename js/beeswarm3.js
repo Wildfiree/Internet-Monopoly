@@ -889,16 +889,16 @@ var xScale = d3.scaleLinear()
 
 const yAxis = g => g
     .attr("transform", `translate(${margin2.left},${svgHeight - margin.bottom})`)
-    .call(d3.axisTop(xScale).tickSizeOuter(0));
+    .call(d3.axisTop(xScale).tickSizeOuter(0).tickFormat(d3.format("")));
 
 const xAxis = g => g
     .attr("transform", `translate(${margin2.left + svgWidth / 2},${margin.top})`)
-    .call(d3.axisLeft(yScale).tickSizeOuter(0));
+    .call(d3.axisLeft(yScale).tickSizeOuter(0).tickFormat(d3.format("")));
 
 function compute(){   
     //一.compute the simple position 
-    const simcir0 = data.map(d => ({ m: xScale(d.year), data: d, index: d.id })).sort((a, b) => a.index - b.index);
-    const simcir = data.map(d => ({ m: yScale(d.year), data: d, index: d.id })).sort((a, b) => a.index - b.index);
+    const simcir0 = data.map(d => ({ m: xScale(d.year), data: d, index: d.id })).sort((a, b) => a.m - b.m);
+    const simcir = data.map(d => ({ m: yScale(d.year), data: d, index: d.id })).sort((a, b) => a.m - b.m);
     simpos(simcir0, height);
 
     for (c = 0; c < simcir0.length; c++) {
@@ -955,8 +955,8 @@ function compute(){
         //2.compute every data's (x,y) by pack method
         var circles = d3.packSiblings(sdata
             .map(function(d){ return {data: d, index: d.id, r: radius + Tpadding};}));
-        // console.log("c:");
-        // console.log(circles);
+        console.log("c:");
+        console.log(circles);
 
         //3.translate the meta data
         var ncircles = circles.map(d => cpost(d, i));
@@ -1013,7 +1013,6 @@ function compute(){
         .domain(d3.extent(simcir2, d => d.year))
         .range([svgWidth - Twidth - margin.left, width - margin.right]);
     simcir3 = simcir2.map(d => ({ m: TyScale(d.year), data: d, index: d.id })).sort((a, b) => a.index - b.index);
-    // console.log(simcir3);
 
     for(l = 0; l < liType2.length; l++){
         sdata = simcir3.filter(function(d){return d.data.type === liType2[l]});
@@ -1046,26 +1045,8 @@ function compute(){
                 }
             }
         };
-        // console.log(l, li, sdata, stendata);
     };
-    // console.log(Alldata);
-    const newD = Alldata.filter(function(d){return "x4" in d});//??
-    // console.log(newD);
-    const otherD = Alldata.filter(function (d) { return d.index !== newD.index});
-    // console.log(otherD);
-    // for (o = 0; o < otherD.length; o++) {
-    //     const x = svgWidth + Math.random()*100;
-    //     const y = svgHeight + Math.random()*100;
-    //     const i = otherD[o].index;
 
-    //     for (d = 0; d < Alldata.length; d++) {
-    //         if (Alldata[d].index === i) {
-    //             Alldata[d].x4 = x;
-    //             Alldata[d].y4 = y;
-    //         }
-    //     }
-    // };
-    // console.log(Alldata);
  
     //common function
     function simpos(data, edge) {
