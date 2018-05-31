@@ -1,12 +1,18 @@
-.textTrans{opacity: 0;
+/* .textTrans{opacity: 0;
     transform: translateY(60px);
     transition: all 1s ease-out;
 }
 .textTrans.fade-in {
     opacity: 1;
     transform: translateY(0);
-}
+} */
 
 
-.trigger{height: 400px;}
+.trigger{height: 50px;}
 .blank{height:500px}
+
+.secifInfo{opacity: 0; transition: all 2s ease-out;}
+.fade-in{opacity: 1;}
+/* #sinfo1{margin-top:10%} */
+
+#trigV{position: absolute; bottom: 0;}

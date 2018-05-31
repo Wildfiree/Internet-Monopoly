@@ -1,4 +1,6 @@
-body{font-size:14px; color: #ececec; line-height: 1em; letter-spacing: 2px;}
+body{font-size:14px; color: #ececec; line-height: 1em; letter-spacing: 2px; }
+.simtext, .secifInfo{line-height: 2em;}
+
 .textTrans{
     width: 80%;
     height: 100px;
@@ -14,13 +16,15 @@ body{font-size:14px; color: #ececec; line-height: 1em; letter-spacing: 2px;}
 }
 .textTrans span{color: #ff5858;}
 
-.secifInfo{width: 45%; height: 60%; }
-/* .secifInfo{background-color: aquamarine;} */
+.secifInfo{width: 35%; margin-left:3%; padding-top: 15%;}
+.secifInfo p span{font-weight: 700; letter-spacing: 1px; color: blue;}
 
-.secifInfo .timeTrans{
-    height: 200px;
-    position: relative;
-    top:10%;
-}
 
-#pin h3{text-align: center;color: blue;}
+
+#pin{width: 60%; left: 20%; position: relative; padding: 0px 20px;}
+#pin h3{text-align: center; letter-spacing: 0.3em; margin-top:5%; font-size: 26px;}
+#pin video{width:100%; position: relative; margin-top:2%; }
+
+
+.simtext{width: 60%;left: 20%;position: relative;margin: 3% 0px; padding: 0px 20px;}
+.simtext p{ margin-top: 20px; text-indent: 2em;}
