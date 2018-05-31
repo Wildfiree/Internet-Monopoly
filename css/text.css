@@ -21,8 +21,8 @@ body{font-size:16px; color: #ececec; line-height: 1em; letter-spacing: 2px; text
 .secifInfo p span{font-weight: 700; letter-spacing: 1px; color: blue;}
 
 #round .seciInfo{float: left;}
-#round .img{float: right; width:30%}
-#round .img img{width:100%; }
+#round .img{float: right; width:30%; right: 10%; position: relative;}
+#round .img img{width: 80%; margin-top: 20%;}
 
 #pin{width: 60%; left: 20%; position: relative; padding: 0px 20px; margin-bottom: 10%;}
 #pin h3{text-align: center; letter-spacing: 0.3em; margin-top:5%; font-size: 26px;}

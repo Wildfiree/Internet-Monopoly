@@ -5,20 +5,20 @@ $(document).ready(function(){
     var controller = new ScrollMagic.Controller();
     
     // var headerfade = new ScrollMagic.Scene({
-        // triggerElement: "header",
-        // duration: "140%",
-        // triggerHook: 0})
-        // .setPin("#content", {pushFollowers: false})
-        // .addIndicators({name:"headerfade"}).addTo(controller);
+    //     triggerElement: "header",
+    //     duration: "140%",
+    //     triggerHook: 0})
+    //     .setPin("#container", {pushFollowers: false})
+    //     .addIndicators({name:"headerfade"}).addTo(controller);
     
     var trigV = new ScrollMagic.Scene({triggerElement:"#trigV", duration:"100%", triggerHook:0})
-            .on("enter", function(){$("#pin video").trigger("play")}).addIndicators({name:"video"}).addTo(controller);
+            .on("enter", function(){$("#pin video").trigger("play")}).addTo(controller);
     
     var trig0 = new ScrollMagic.Scene({
-        triggerElement:"#trigPre", duration:"800%",triggerHook:0 })
+        triggerElement:"#trigPre", duration:"900%",triggerHook:0 })
         .on("enter", preL()).setPin("#chart #chart2", {pushFollowers: false})
         .setClassToggle("#sinfo1", "fade-in")
-        .addIndicators({name: 'trig0',}).addTo(controller);
+        .addTo(controller);
 
     var trig1 = new ScrollMagic.Scene({
         triggerElement: "#trigFirst", duration: "100%", triggerHook: 0.6})
@@ -45,7 +45,7 @@ $(document).ready(function(){
                 .style("opacity", 1)  
                 .attr("cx", d => d.x1)
                 .attr("cy", d => height - d.y1);
-        }).addIndicators({name:"first"}).addTo(controller);
+        }).addTo(controller);
 
     var trig2 = new ScrollMagic.Scene({
         triggerElement: "#trigSecond", duration: "100%", triggerHook: 0
@@ -73,7 +73,7 @@ $(document).ready(function(){
                     }
                 })
                 .attr("cy", d => d.y2 - margin.top);})
-    .setClassToggle("#twoC", "fade-in").addIndicators({ name: "second" }).addTo(controller);
+    .setClassToggle("#twoC", "fade-in").addTo(controller);
 
 
     var trig2_3 = new ScrollMagic.Scene({
@@ -88,7 +88,7 @@ $(document).ready(function(){
             .style("opacity", 0)
             .attr("cx", d => 800 + Math.random() * 1000)
             .attr("cy", d => 800 + Math.random() * 1000);
-    }).addIndicators({name:"2-3"}).addTo(controller);
+    }).addTo(controller);
 
     var trig3 = new ScrollMagic.Scene({
         triggerElement: "#trigThird", duration: "100%", triggerHook: 0.6})
@@ -103,7 +103,7 @@ $(document).ready(function(){
                 .style("opacity", 1)
                 .attr("cx", d => d.x3 + svgWidth - Twidth + margin2.left + margin.left)
                 .attr("cy", d => d.y3 + margin2.top * 2);
-        }).addIndicators({name:"third"}).addTo(controller);
+        }).addTo(controller);
 
     var trig4 = new ScrollMagic.Scene({
         triggerElement: "#trigForth", duration: "100%", triggerHook: 0.3
@@ -122,7 +122,7 @@ $(document).ready(function(){
                 .attr("cy", function (d) {
                     if ("y4" in d) { return d.y4 } else { return 800 + Math.random() * 1000 }
                 });
-        }).addIndicators({ name: "forth" }).addTo(controller);
+        }).addTo(controller);
     
 
     
@@ -130,9 +130,9 @@ $(document).ready(function(){
     // var trigRp = new ScrollMagic.Scene({triggerElement:"#trig6", duration:"200%", triggerHook:0.8 })
     //     .setClassToggle("#relate", "show").addIndicators({name: "Rpre"}).addTo(controller);
     var trigR = new ScrollMagic.Scene({
-        triggerElement: "#Rchart", duration: "80%", triggerHook: 0 })    
+        triggerElement: "#Rchart", duration: "150%", triggerHook: 0 })    
         .setPin("#chart #Rchart", { pushFollowers: false })
-        .addIndicators({name: "relate"}).addTo(controller);
+        .addTo(controller);
     
     // $(".textTrans").each(function(){
     //     var fade = new ScrollMagic.Scene({

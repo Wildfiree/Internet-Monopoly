@@ -11,9 +11,10 @@
 .trigger{height: 50px;}
 .blank{height:500px}
 .blank2{height: 300px;}
-
-.fade{opacity: 0; transition: all 2s ease-out; transition-delay: 2s; transform: translateY(60px)}
-.fade-in{opacity: 1; transform: translateY(0px)}
+/* transition-delay: 2s; */
+.animation{transition: all 1s ease-out;}
+.fade{opacity: 0;  }
+.fade-in{opacity: 1;}
 /* #sinfo1{margin-top:10%} */
 
 #trigV{position: absolute; bottom: 0;}
