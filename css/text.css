@@ -18,7 +18,7 @@ body{font-size:16px; color: #ececec; line-height: 1em; letter-spacing: 2px; text
 
 .secifInfo{width: 35%; margin-left:3%; padding-top: 15%;}
 .secifInfo p{font-size: 13px; }
-.secifInfo p span{font-weight: 700; letter-spacing: 1px; color: blue;}
+.secifInfo p span{font-weight: 700; letter-spacing: 1px; font-size:14px;}
 
 #round .seciInfo{float: left;}
 #round .img{float: right; width:30%; right: 10%; position: relative;}

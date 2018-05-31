@@ -124,6 +124,8 @@ $(document).ready(function(){
                 });
         }).addTo(controller);
     
+    var trigRound = new ScrollMagic.Scene({triggerElement:"#round", duration:"100%", triggerHook:0})
+        .setPin("#round .img", { pushFollowers: false}).addTo(controller);
 
     
     //add effects to the class element
