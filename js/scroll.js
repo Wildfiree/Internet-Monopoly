@@ -59,6 +59,7 @@ $(document).ready(function(){
                 .duration(1000)
                 .delay(1000)
                 .call(xAxis);
+            
             d3.selectAll("text").attr("fill", axistext);
             d3.selectAll("circle")
                 .transition()
@@ -97,12 +98,35 @@ $(document).ready(function(){
             d3.selectAll(".axis").transition()
                 .duration(0)
                 .remove();
+            var Taxis = d3.select("#axis-container")
+
+                .append("g")
+                .attr("class", "axis")
+                .attr("id", "taxis")
+                .attr("opscity", 0)
+
+                .selectAll(".tick")
+                .data(liType3)
+                .enter()
+                .append("text")
+                .attr("transform", (d) => {
+                    if (d.col === 2) {
+                        return "translate(" + [margin2.left * 2 + svgWidth - Twidth + (d.row - 1) * Ppadding, margin2.top + margin.top + d.col * Ppadding2] + ")";
+                    }
+                    else { return "translate(" + [margin2.left * 2 + svgWidth - Twidth + (d.row - 1) * Ppadding, margin2.top + margin.top + d.col * Ppadding2 - Math.floor(d.col / 2) * margin2.top] + ")" }
+                })
+                .text((d) => { return d.text });
+            
             d3.selectAll("circle")
                 .transition()
                 .duration(3000)
                 .style("opacity", 1)
                 .attr("cx", d => d.x3 + svgWidth - Twidth + margin2.left + margin.left)
                 .attr("cy", d => d.y3 + margin2.top * 2);
+            Taxis.transition()
+                .delay(2000)
+                .duration(2000)
+                .attr("opacity", 1);
         }).addTo(controller);
 
     var trig4 = new ScrollMagic.Scene({
@@ -112,6 +136,29 @@ $(document).ready(function(){
             d3.selectAll(".axis").transition()
                 .duration(0)
                 .remove();
+            const yAxis1 = svg.append("g")
+                .transition()
+                .delay(1000)
+                .duration(1000)
+                .attr("class", "axis")
+                .call(tAxis)
+                .attr("transform", `translate(${margin2.left}, ${TTheight / 2 + margin2.top + halfSpace2 * 0.75})`);
+            const yAxis2 = svg.append("g")
+                .transition()
+                .delay(1000)
+                .duration(1000)
+                .attr("class", "axis")
+                .attr("transform", `translate(${margin2.left}, ${TTheight * 1.5 + margin2.top + halfSpace2 * 2})`)
+                .call(tAxis);
+            const yAxis3 = svg.append("g")
+                .transition()
+                .delay(1000)
+                .duration(1000)
+                .attr("class", "axis")
+                .attr("transform", `translate(${margin2.left}, ${TTheight * 2.5 + margin2.top + halfSpace2 * 3.75})`)
+                .call(tAxis);
+            
+
             d3.selectAll("circle")
                 .transition()
                 .duration(3000)
@@ -132,7 +179,7 @@ $(document).ready(function(){
     // var trigRp = new ScrollMagic.Scene({triggerElement:"#trig6", duration:"200%", triggerHook:0.8 })
     //     .setClassToggle("#relate", "show").addIndicators({name: "Rpre"}).addTo(controller);
     var trigR = new ScrollMagic.Scene({
-        triggerElement: "#Rchart", duration: "150%", triggerHook: 0 })    
+        triggerElement: "#Rchart", duration: "200%", triggerHook: 0 })    
         .setPin("#chart #Rchart", { pushFollowers: false })
         .addTo(controller);
     

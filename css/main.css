@@ -3,17 +3,17 @@ footer, article, #chart{position: absolute; left:0; right:0;}
 /* header, */
 
 #container{
-    background: -webkit-linear-gradient(top,#2293bf 0%,#2293bf 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(top, #2293bf 0%,#2293bf 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(top, #2293bf 0%,#2293bf 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* Firefox 3.6 to 15 */
-    background: linear-gradient(top,#2293bf 0%,#2293bf 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* 标准语法 */
+    background: -webkit-linear-gradient(top,#0490d2 0%,#0490d2 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top, #0490d2 0%,#0490d2 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top, #0490d2 0%,#0490d2 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* Firefox 3.6 to 15 */
+    background: linear-gradient(top,#0490d2 0%,#0490d2 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* 标准语法 */
 }
 /* header{z-index: 20;} */
 #chart{z-index:10;}
 article{z-index:1;}
 
 /* test */
-header{background-image:url(http://7xq8z6.com1.z0.glb.clouddn.com/header.jpg); background-size: cover; background-position: center;}
+header{background-image:url(../img/header2.jpg); background-size: cover; background-position: center;}
 #container{height: 14000px;}
 
 #relate{
@@ -34,8 +34,8 @@ header{background-image:url(http://7xq8z6.com1.z0.glb.clouddn.com/header.jpg); b
 #speCom .speCom .ctext .ctime{font-style: italic; font-size:12px;}
 #speCom .speCom .ctext .cinfo{text-indent: 2em; text-align: justify; line-height: 1.5; font-size: 12px; margin-top: 10px;}
 
-#speCom .ten{background-color: #3391CB;}
-#speCom .ali{background-color: #DC9FB4;}
+#speCom .ten, .Ttitle .ten{background-color: #3391CB;}
+#speCom .ali, .Ttitle .ali{background-color: #DC9FB4;}
 
 #round img{width: 80%; position: relative; left: 10%;}
 
@@ -53,3 +53,5 @@ header{background-image:url(http://7xq8z6.com1.z0.glb.clouddn.com/header.jpg); b
 #speCom .speCom .logo .a06{background-image: url(../img/a06.png)}
 
 #Rchart img{position: absolute; right:3%; z-index:5; top:40%}
+
+#pin video{z-index: 30;}

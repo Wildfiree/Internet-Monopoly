@@ -865,6 +865,7 @@ var tduration = 1000;
 //type position varable
 var liType = [],
     liType2 = [],
+    liType3 = [],
     tnum = 4, //the number of the type shown on one list 
     Ppadding = Twidth / tnum,
     Ppadding2 = svgHeight /tnum,
@@ -894,6 +895,15 @@ const yAxis = g => g
 const xAxis = g => g
     .attr("transform", `translate(${margin2.left + svgWidth / 2},${margin.top})`)
     .call(d3.axisLeft(yScale).tickSizeOuter(0).tickFormat(d3.format("")));
+
+const simcir2 = data.filter(function (d) { return d.year > 2009 && d.year < 2018 });
+var TyScale = d3.scaleLinear()
+    .domain(d3.extent(simcir2, d => d.year))
+    .range([svgWidth - Twidth - margin.left, width - margin.right]);
+
+const tAxis = g => g
+    // .attr("transform", `translate(${margin2.left}, 0)`)
+    .call(d3.axisTop(TyScale).tickSizeOuter(0).tickFormat(d3.format("")).tickValues([2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017]));
 
 function compute(){   
     //一.compute the simple position 
@@ -955,8 +965,8 @@ function compute(){
         //2.compute every data's (x,y) by pack method
         var circles = d3.packSiblings(sdata
             .map(function(d){ return {data: d, index: d.id, r: radius + Tpadding};}));
-        console.log("c:");
-        console.log(circles);
+        // console.log("c:");
+        // console.log(circles);
 
         //3.translate the meta data
         var ncircles = circles.map(d => cpost(d, i));
@@ -1005,21 +1015,18 @@ function compute(){
         };
         
     };
+
     //四.compute type&time position data 
     liType2 = ["文化娱乐", "电子商务", "本地生活"];
 
-    const simcir2 = data.filter(function (d) { return d.year > 2009 && d.year < 2018 });
-    var TyScale = d3.scaleLinear()
-        .domain(d3.extent(simcir2, d => d.year))
-        .range([svgWidth - Twidth - margin.left, width - margin.right]);
     simcir3 = simcir2.map(d => ({ m: TyScale(d.year), data: d, index: d.id })).sort((a, b) => a.index - b.index);
 
     for(l = 0; l < liType2.length; l++){
         sdata = simcir3.filter(function(d){return d.data.type === liType2[l]});
         stendata = sdata.filter(function (d) { return d.data.inname === "腾讯" });
         salidata = sdata.filter(function (d) { return d.data.inname === "阿里" });
-        simpos(stendata, TTheight / 2 - margin3.top);
-        simpos(salidata, TTheight / 2 - margin3.top);
+        simpos(stendata, TTheight / 2 - margin3.top - padding*2);
+        simpos(salidata, TTheight / 2 - margin3.top - padding * 2);
         const li = (TTheight + margin.top) * l;
         for(s = 0; s < stendata.length; s++){
             const x = stendata[s].m;
@@ -1046,7 +1053,23 @@ function compute(){
             }
         };
     };
-
+    
+    liType3 = [{ "text": "文化娱乐", "row": 1, "col": 1 },
+        { "text": "电子商务", "row": 2, "col": 1 },
+        { "text": "企业服务", "row": 3, "col": 1 },
+        { "text": "汽车交通", "row": 4, "col": 1 },
+        { "text": "本地生活", "row": 1, "col": 2 },
+        { "text": "金   融", "row": 2, "col": 2 },
+        { "text": "游   戏", "row": 3, "col": 2 },
+        { "text": "医疗健康", "row": 4, "col": 2 },
+        { "text": "工具软件", "row": 1, "col": 3 },
+        { "text": "教   育", "row": 2, "col": 3 },
+        { "text": "物   流", "row": 3, "col": 3 },
+        { "text": "社交网络", "row": 4, "col": 3 },
+        { "text": "硬   件", "row": 1, "col": 4 },
+        { "text": "旅   游", "row": 2, "col": 4 },
+        { "text": "房产服务", "row": 3, "col": 4 },
+        { "text": "体育运动", "row": 4, "col": 4 }]
  
     //common function
     function simpos(data, edge) {
@@ -1135,6 +1158,8 @@ function initlayout(){
     Ttext2 = Ttext.append("p");
     Ttext3 = Ttext.append("p"); 
     Ttext4 = Ttext.append("p");
+
+    
 
 };
 function preL(){
