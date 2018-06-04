@@ -15,7 +15,7 @@ $(document).ready(function(){
             .on("enter", function(){$("#pin video").trigger("play")}).addTo(controller);
     
     var trig0 = new ScrollMagic.Scene({
-        triggerElement:"#trigPre", duration:"900%",triggerHook:0 })
+        triggerElement:"#trigPre", duration:"950%",triggerHook:0 })
         .on("enter", preL()).setPin("#chart #chart2", {pushFollowers: false})
         .setClassToggle("#sinfo1", "fade-in")
         .addTo(controller);
@@ -179,7 +179,7 @@ $(document).ready(function(){
     // var trigRp = new ScrollMagic.Scene({triggerElement:"#trig6", duration:"200%", triggerHook:0.8 })
     //     .setClassToggle("#relate", "show").addIndicators({name: "Rpre"}).addTo(controller);
     var trigR = new ScrollMagic.Scene({
-        triggerElement: "#Rchart", duration: "200%", triggerHook: 0 })    
+        triggerElement: "#Rchart", duration: "150%", triggerHook: 0 })    
         .setPin("#chart #Rchart", { pushFollowers: false })
         .addTo(controller);
     

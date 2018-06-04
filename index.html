@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="css/scroll.css">
     <title>Monopoly</title>
 </head>
-<body>
+<body class="scoll_dis">
+<div id="loading">
+    <img src="img/loading.gif" alt="">
+</div>
 
 <div id="content">
 <header>
@@ -376,6 +379,8 @@
             
         </div>
         <!-- 第五部分 -->
+        <!-- <div class="blank"></div> -->
+
         <div class="simtext">
             <p>从互联网发明伊始，到如今各种互联网巨头争霸于互联网江湖，引领者们始终骄傲于互联网自由、平等、共享、去中心化的理念。只是在这样一条看似日新月异的发展道路上，互联网行业似乎一直未能走出传统资本逻辑的控制。一味地去相信一个绝对契合互联网理念的的市场环境意义不大，市场的监管，法律法规的及时更新才是遏制互联网资本集中趋势的直接有效手段。社会至少应该让用户和经营者期待，互联网会有一个更好的未来。
             </p>
@@ -398,7 +403,7 @@
             <p>
                 数据和图片来源：IT桔子
             </p>
-            <p>制作软件：D3.js | Echarts | Adobe Illustrator</p>
+            <p>制作软件：D3.js | Echarts.js | Adobe Illustrator</p>
             <p>如有问题，欢迎指正</p>
         </div>
 
@@ -422,28 +427,6 @@
 
     </div>
 
-    <!-- <footer>
-        <hr width="400px" height="20px" align="left">
-        <div class="Stitle">
-            <p class="Smtitle">
-                文字记者：于欣宜 | 刘彧彤
-            </p>
-            <div class="Smtitle">
-                数据分析：崔雨晴
-            </div>
-            <div class="Smtitle">
-                视觉呈现：崔雨晴 熊玉兰
-            </div>
-            <div class="Smtitle">
-                网页制作：熊玉兰
-            </div>
-            <p class="Smtitle">
-                数据和图片来源：IT桔子
-            </p>
-            <p class="Smtitle">制作软件：D3.js | Echarts | Adobe Illustrator</p>
-            <p class="Smtitle">如有问题，欢迎指正</p>
-        </div>
-    </footer> -->
 </div>
     
 
@@ -471,6 +454,17 @@
     <script>
         var Hheight = $(window).height();
         $("header").height(Hheight*1.2);
+
+        $(document).ready(function(){
+            console.log("load");
+            //适当延迟隐藏，提高loading效果  
+            $('#loading').delay(500).hide(0);  
+            setTimeout(function () {
+                $('body').removeClass("scoll_dis");
+            }, 300);  
+            // $('#loading_botm').hide(0);
+        });  
+        console.log("load.complete");
     </script>
     
     

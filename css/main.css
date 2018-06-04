@@ -55,3 +55,8 @@ header{background-image:url(../img/header2.jpg); background-size: cover; backgro
 #Rchart img{position: absolute; right:3%; z-index:5; top:40%}
 
 #pin video{z-index: 30;}
+
+#loading{position:fixed; z-index: 999; width: 100%; height: 100%; background-color: white;}
+#loading img{position: relative;top:30%; left:50%; margin-left:-200px;}
+
+.scoll_dis{overflow: scroll; overflow: hidden;}
