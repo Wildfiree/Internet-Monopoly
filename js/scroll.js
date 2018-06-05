@@ -6,7 +6,7 @@ $(document).ready(function(){
         h01 = h01_1 - h01_2 *4,
         h02 = $("#height2").height(),
         h03 = $("#height3").height();
-    console.log(h01_1, h01, h01_2);
+    console.log(h02);
 
     var controller = new ScrollMagic.Controller();
     
