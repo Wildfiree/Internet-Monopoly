@@ -15,7 +15,7 @@ $(document).ready(function(){
             .on("enter", function(){$("#pin video").trigger("play")}).addTo(controller);
     
     var trig0 = new ScrollMagic.Scene({
-        triggerElement:"#trigPre", duration:"950%",triggerHook:0 })
+        triggerElement:"#chart #chart2", duration:"950%",triggerHook:0 })
         .on("enter", preL()).setPin("#chart #chart2", {pushFollowers: false})
         .setClassToggle("#sinfo1", "fade-in")
         .addTo(controller);
@@ -41,7 +41,7 @@ $(document).ready(function(){
             d3.selectAll("circle")
                 .transition()
                 .duration(2500)
-                .delay(d => d.x1*5 + d.y1 - 200)
+                // .delay(d => d.x1*2 + d.y1 - 300)
                 .style("opacity", 1)  
                 .attr("cx", d => d.x1)
                 .attr("cy", d => height - d.y1);
@@ -171,13 +171,17 @@ $(document).ready(function(){
                 });
         }).addTo(controller);
     
-    var trigRound = new ScrollMagic.Scene({triggerElement:"#round", duration:"100%", triggerHook:0})
+    var trigRound = new ScrollMagic.Scene({triggerElement:"#round .img", duration:"180%", triggerHook:0})
+        // .setClassToggle("#trigR1", "fade-in")
         .setPin("#round .img", { pushFollowers: false}).addTo(controller);
 
-    
-    //add effects to the class element
-    // var trigRp = new ScrollMagic.Scene({triggerElement:"#trig6", duration:"200%", triggerHook:0.8 })
-    //     .setClassToggle("#relate", "show").addIndicators({name: "Rpre"}).addTo(controller);
+    var tirgR1 = new ScrollMagic.Scene({ triggerElement: "#trig-R2", duration:"100%", triggerHook:0.3})
+        .setClassToggle("#trigR2", "fade-in").addTo(controller);
+
+    var tirgR2 = new ScrollMagic.Scene({ triggerElement: "#trig-R3", duration: "100%", triggerHook: 0.3 })
+        // .removeClassToggle("#trigR2", "fade-in")
+        .setClassToggle("#trigR3", "fade-in").addTo(controller);
+
     var trigR = new ScrollMagic.Scene({
         triggerElement: "#Rchart", duration: "150%", triggerHook: 0 })    
         .setPin("#chart #Rchart", { pushFollowers: false })

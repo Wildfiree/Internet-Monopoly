@@ -1,20 +1,20 @@
 body, header, #content, footer{margin:0; padding:0;}
 footer, article, #chart{position: absolute; left:0; right:0;}
-/* header, */
+body{overflow-x: hidden;}
 
 #container{
-    background: -webkit-linear-gradient(top,#0490d2 0%,#0490d2 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(top, #0490d2 0%,#0490d2 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(top, #0490d2 0%,#0490d2 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* Firefox 3.6 to 15 */
-    background: linear-gradient(top,#0490d2 0%,#0490d2 2%,#0a5585 10%,#0f2644 50%,#061836 100%); /* 标准语法 */
+    background: -webkit-linear-gradient(top,#0490d2 0%,#207096 5%,#185a84 10%,#0d213c 50%,#030c1b 70%,#030c1b 100%); /* Safari 5.1 to 6.0 */
+    background: -o-linear-gradient( top,#0490d2 0%,#207096 5%,#185a84 10%,#0d213c 50%,#030c1b 70%,#030c1b 100%); /* Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient( top,#0490d2 0%,#207096 5%,#185a84 10%,#0d213c 50%,#030c1b 70%,#030c1b 100%); /* Firefox 3.6 to 15 */
+    background: linear-gradient(top,#0490d2 0%,#207096 5%,#185a84 10%,#0d213c 50%,#030c1b 70%,#030c1b 100%); /* 标准语法 */
 }
 /* header{z-index: 20;} */
-#chart{z-index:10;}
-article{z-index:1;}
+/* #chart{z-index:10;}
+article{z-index:1;} */
 
 /* test */
-header{background-image:url(../img/header2.jpg); background-size: cover; background-position: center;}
-#container{height: 14000px;}
+header{background-image:url(../img/header2.jpg); background-size: 100% 100%; background-position: center;}
+#container{height: 15500px;}
 
 #relate{
     /* width: 80%;   */
@@ -37,7 +37,6 @@ header{background-image:url(../img/header2.jpg); background-size: cover; backgro
 #speCom .ten, .Ttitle .ten{background-color: #3391CB;}
 #speCom .ali, .Ttitle .ali{background-color: #DC9FB4;}
 
-#round img{width: 80%; position: relative; left: 10%;}
 
 #speCom .speCom .logo .t01{background-image: url(../img/t01.png)}
 #speCom .speCom .logo .t02{background-image: url(../img/t02.png)}
@@ -60,3 +59,12 @@ header{background-image:url(../img/header2.jpg); background-size: cover; backgro
 #loading img{position: relative;top:30%; left:50%; margin-left:-200px;}
 
 .scoll_dis{overflow: scroll; overflow: hidden;}
+
+.line img{width:30%; float: left;}
+.line span{float: left; width: 40%;float: left;
+    height: 100px;
+    text-align: center;
+    letter-spacing: 4px;
+    line-height: 130px;
+    font-size: 18px;}
+    

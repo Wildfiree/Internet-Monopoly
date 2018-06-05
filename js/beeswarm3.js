@@ -1177,8 +1177,8 @@ function preL(){
             }
         })
         .style("opacity", 0)
-        .attr("cx", d => d.x1)//random algorithm
-        .attr("cy", d => height - d.y1 - 100);
+        .attr("cx", d => Math.random() * 1000)//random algorithm
+        .attr("cy", d => Math.random() * 1000);
     //draw tooltip
     d3.selectAll("circle")
         .on("mouseover", function(d){

@@ -21,18 +21,20 @@ body{font-size:16px; color: #ececec; line-height: 1em; letter-spacing: 2px; text
 .secifInfo p span{font-weight: 700; letter-spacing: 1px; font-size:14px;}
 
 #round .seciInfo{float: left;}
-#round .img{float: right; width:30%; right: 10%; position: relative;}
-#round .img img{width: 80%; margin-top: 20%;}
 
-#pin{width: 60%; left: 20%; position: relative; padding: 0px 20px; margin-bottom: 5%;}
-#pin h3{text-align: center; letter-spacing: 0.3em; margin-top:5%; font-size: 26px;}
+#round .img{float: right; width:30%; right: 10%; position: relative;}
+#round .img img{width: 100%; position: absolute; padding: 30% 0 0 200%;}
+/* #round .img #trigR1{width:600px} */
+
+#pin{width: 60%; left: 20%; position: relative; padding: 0px 20px; margin-bottom: 3%;}
+#pin h3{text-align: center; letter-spacing: 0.2em; margin-top:5%; font-size: 24px;}
 #pin video{width:100%; position: relative; margin-top:2%; }
 
 
 .simtext{width: 60%;left: 20%;position: relative;margin: 3% 0px; padding: 0px 20px;}
 .simtext p{ margin-top: 20px; text-indent: 2em;}
 
-#twoC{width: 95%; left:2.5%; position: relative; height: 800px; margin-top:200px}
+#twoC{width: 95%; left:2.5%; position: relative; height: 1000px; margin-top:200px}
 #twoC .twoinfo{width:35%;}
 #twoC .twoinfo img{width: 40%;}
 #twoC .tinfo{margin:0 5%; width: 45%;}

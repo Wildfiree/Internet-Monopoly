@@ -13,7 +13,7 @@
 .blank2{height: 300px;}
 /* transition-delay: 2s; */
 .animation{transition: all 1s ease-out;}
-.fade{opacity: 0;  }
+.fade{opacity: 0; }
 .fade-in{opacity: 1;}
 /* #sinfo1{margin-top:10%} */
 
