@@ -36,8 +36,8 @@ body{font-size:16px; color: #ececec; line-height: 1em; letter-spacing: 2px; text
 
 #twoC{width: 95%; left:2.5%; position: relative; height: 1000px; margin-top:200px}
 #twoC .twoinfo{width:35%;}
-#twoC .twoinfo img{width: 40%;}
-#twoC .tinfo{margin:0 5%; width: 45%;}
+#twoC .twoinfo img{width: 50%;}
+#twoC .tinfo{margin:0 5%; width: 40%;}
 #twoC .tinfo .name{font-size: 18px; font-weight: 700; letter-spacing: 3px; }
 /* #twoC .tinfo .name.right{text-align: right;} */
 #twoC .tinfo .cinfo{line-height: 1.5; font-size:12px;}

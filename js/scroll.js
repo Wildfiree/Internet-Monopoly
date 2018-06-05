@@ -1,6 +1,12 @@
 $(document).ready(function(){
     compute();
     initlayout();
+    var h01_1 = $("#height1").height(),
+        h01_2 = $("#height1 .secifInfo p:last").height(),
+        h01 = h01_1 - h01_2 *4,
+        h02 = $("#height2").height(),
+        h03 = $("#height3").height();
+    console.log(h01_1, h01, h01_2);
 
     var controller = new ScrollMagic.Controller();
     
@@ -15,7 +21,7 @@ $(document).ready(function(){
             .on("enter", function(){$("#pin video").trigger("play")}).addTo(controller);
     
     var trig0 = new ScrollMagic.Scene({
-        triggerElement:"#chart #chart2", duration:"950%",triggerHook:0 })
+        triggerElement:"#chart #chart2", duration:h01,triggerHook:0 })
         .on("enter", preL()).setPin("#chart #chart2", {pushFollowers: false})
         .setClassToggle("#sinfo1", "fade-in")
         .addTo(controller);
@@ -87,8 +93,8 @@ $(document).ready(function(){
             .transition()
             .duration(3000)
             .style("opacity", 0)
-            .attr("cx", d => 800 + Math.random() * 1000)
-            .attr("cy", d => 800 + Math.random() * 1000);
+            .attr("cx", d => 900 + Math.random() * 1000)
+            .attr("cy", d => 900 + Math.random() * 1000);
     }).addTo(controller);
 
     var trig3 = new ScrollMagic.Scene({
@@ -167,11 +173,11 @@ $(document).ready(function(){
                     if("x4" in d){return d.x4}else{return 400 + Math.random()*1000} 
                 })
                 .attr("cy", function (d) {
-                    if ("y4" in d) { return d.y4 } else { return 800 + Math.random() * 1000 }
+                    if ("y4" in d) { return d.y4 } else { return 1000 + Math.random() * 1000 }
                 });
         }).addTo(controller);
     
-    var trigRound = new ScrollMagic.Scene({triggerElement:"#round .img", duration:"180%", triggerHook:0})
+    var trigRound = new ScrollMagic.Scene({triggerElement:"#round .img", duration: h03, triggerHook:0})
         // .setClassToggle("#trigR1", "fade-in")
         .setPin("#round .img", { pushFollowers: false}).addTo(controller);
 
@@ -183,7 +189,7 @@ $(document).ready(function(){
         .setClassToggle("#trigR3", "fade-in").addTo(controller);
 
     var trigR = new ScrollMagic.Scene({
-        triggerElement: "#Rchart", duration: "150%", triggerHook: 0 })    
+        triggerElement: "#Rchart", duration: h02, triggerHook: 0 })    
         .setPin("#chart #Rchart", { pushFollowers: false })
         .addTo(controller);
     

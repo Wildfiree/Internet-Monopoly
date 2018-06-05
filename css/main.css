@@ -14,7 +14,7 @@ article{z-index:1;} */
 
 /* test */
 header{background-image:url(../img/header2.jpg); background-size: 100% 100%; background-position: center;}
-#container{height: 15500px;}
+/* #container{height: 16000px;} */
 
 #relate{
     /* width: 80%;   */
@@ -60,6 +60,7 @@ header{background-image:url(../img/header2.jpg); background-size: 100% 100%; bac
 
 .scoll_dis{overflow: scroll; overflow: hidden;}
 
+.line{margin:}
 .line img{width:30%; float: left;}
 .line span{float: left; width: 40%;float: left;
     height: 100px;
